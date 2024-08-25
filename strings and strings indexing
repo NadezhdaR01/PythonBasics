@@ -1,0 +1,6 @@
+example = "Фриланс"
+print(example[0])  # 1ый символ
+print(example[-1])  # последний символ
+print(example[3:])  # вторая половина слова
+print(example[::-1]) # слово наоборот
+print(example[1::2])  # каждая вторая буква
