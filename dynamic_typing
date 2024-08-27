@@ -1,0 +1,9 @@
+#module_1_3.py
+name = "Hope"  # имя, строковый тип данных(string)
+print("Name: " + name)  
+age = 22  # возраст, целое число(integer)
+print("Age:", age)  
+age += 10  # изменение значения в переменной прибавлением 10(age = age + 10)
+print("New age:", age)
+is_student = True  # логическое значение(boolean)
+print("Is student:", is_student)
