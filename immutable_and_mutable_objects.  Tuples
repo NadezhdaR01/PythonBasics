@@ -1,0 +1,20 @@
+# module_1_5.py
+# кортеж, состоящий из элементов разных типов из двух других кортежей
+immutable_var = (4, 3.7, "tube", False, [3, 7.5, "tails", True]) + (9.8, "step", False, 86)
+print("Кортеж:", immutable_var) 
+#immutable_var[0] = 456 # Кортеж неизменяемый тип данных поэтому при попытке изменить в нем неизменяемый тип данных(исла и строки) будет ошибка
+immutable_var[4][2] = "heads" # Список является изменяемым типом данных поэтому его элементы изменяются даже внутри кортежа
+print("Измененный список внутри кортежа:", immutable_var)
+mutable_list = [5.6, 98, "day to play", False] 
+# Изменение элементов списка
+mutable_list[-1] = 78
+mutable_list[0] = True
+mutable_list[1] = "day to work"
+mutable_list[2] = 6.4
+mutable_list.append(345)  # добавление элемента в список
+# добавление элементов в список
+mutable_list.extend("cat")  
+mutable_list.extend([2.4, 498, "victory"])
+
+mutable_list.remove("a") # удаление элемента из списка
+print("Список:", mutable_list)
