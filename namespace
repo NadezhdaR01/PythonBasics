@@ -1,0 +1,30 @@
+def count_call():
+    """ Функция, подсчитывающая вызовы остальных функций """
+    global calls
+    calls += 1
+
+def string_info(string):
+    """ Функция принимает аргумент - строку и возвращает кортеж из:
+     длины этой строки, строку в верхнем регистре, строку в нижнем регистре"""
+    count_call()
+    info_tuple = (len(string), string.upper(), string.lower())
+    return info_tuple
+
+def is_contains(string, list_to_serch):
+    """ Функция принимает два аргумента:
+    строку и список, и возвращает True, если строка находится в этом списке,
+    False - если отсутствует. Регистром строки при проверке пренебречь."""
+    count_call()
+    for str in list_to_serch:
+        if str.lower() == string.lower():
+            return True
+    return False
+
+calls = 0  # переменная-счетчик для подсчета вызовов функций
+
+# Вывд на консоль результата работы функций
+print(string_info('Capybara'))
+print(string_info('Armageddon'))
+print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN'])) # Urban ~ urBAN
+print(is_contains('cycle', ['recycling', 'cyclic'])) # No matches
+print(calls)
