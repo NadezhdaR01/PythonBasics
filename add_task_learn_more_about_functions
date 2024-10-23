@@ -1,0 +1,47 @@
+def calculate_structure_sum(data_structure):
+    """
+    Рекурсивная функция. которая считает сумму всех чисел и длин строк в списке.
+    data_structure: список с различными типами данных
+    Логика:
+    1. Если список пустой или data_structure является None, то ф-ция возвращает 0.
+    2. Если нет, то задаем переменную для хранения в ней результата сложения
+    и проверяем к какому типу данных относится каждый элемент переданного в ф-цию списка.  
+    3. Если строка, то добавляем к сумме её длину,
+     если числовой тип данных, то просто суммируем,
+     если список или кортеж, то рекурсивно вызываем функцию для этого элемента,
+     если словарь, то проходимся по его ключам и значениям и рекурсивно вызываем ф-цию для них,
+     если множество, то преобразуем его в список и рекурсивно вызываем функцию.
+     Иначе выведится сообщение "Что-то в функции не учли^^"
+     4. Возвращает сумму.
+    """
+    if not data_structure:  # Проверка на передачу пустого списка(или None)
+        return 0
+    else:
+        counter = 0
+        for data in data_structure:
+            if isinstance(data, str):
+                counter += len(data)
+            elif isinstance(data, (int, float)):
+                counter += data
+            elif isinstance(data, (list, tuple)):
+                counter += calculate_structure_sum(data)
+            elif  isinstance(data, dict):
+                for key, value in data.items():
+                    counter += calculate_structure_sum([key])
+                    counter += calculate_structure_sum([value])
+            elif isinstance(data, set):
+                counter += calculate_structure_sum(list(data))
+            else:
+                print("Что-то в функции не учли^^")
+        return counter
+                
+data_structure = [
+[1, 2, 3],
+{'a': 4, 'b': 5},
+(6, {'cube': 7, 'drum': 8}),
+"Hello",
+((), [{(2, 'Urban', ('Urban2', 35))}])
+]
+
+result = calculate_structure_sum(data_structure)
+print(result)
