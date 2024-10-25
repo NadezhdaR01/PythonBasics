@@ -1,0 +1,8 @@
+def test_function():
+    #inner_function() - Эта функция ещё не определена
+    def inner_function():
+        print("Я в области видимости функции test_function")
+    inner_function()  # А здесь уже определена
+
+#inner_function()  # NameError: name 'inner_function' is not defined
+test_function() # Проверка
